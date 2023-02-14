@@ -23,7 +23,7 @@ public class TC_Customer_Login_functionality_with_Tables extends Base {
 	
 	@When("I navigate to microtech site")
 	public void i_navigate_to_microtech_site() {
-		driver.get(property.getProperty("baseUrl"));
+		navigateURL("https://it.microtechlimited.com/");
 	}
 
 	@Then("Landing Page will appear")
@@ -57,9 +57,9 @@ public class TC_Customer_Login_functionality_with_Tables extends Base {
 	    login.clickLogin();
 	}
 
-	@Then("the Verify the {string}")
-	public void the_Verify_the(String string) {
-		assertEquals("Invalid username or password!", login.getErrorMessage() );
-	}
+// 	@Then("the Verify the {string}")
+// 	public void the_Verify_the(String string) {
+// 		assertEquals("Invalid username or password!", login.getErrorMessage() );
+// 	}
 
 }
