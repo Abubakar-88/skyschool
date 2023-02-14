@@ -15,6 +15,31 @@ public class TC_Customer_Login_functionality_with_Tables extends Base {
 	CustLoginPage login = new CustLoginPage(driver);
 	// Creating object of DashboardPage
 	
+		@Given("I am in Chrome Browser")
+	public void i_am_in_Chrome_Browser() {
+	    //driver.
+	}
+	
+	
+	@When("I navigate to microtech site")
+	public void i_navigate_to_microtech_site() {
+		driver.get(property.getProperty("baseUrl"));
+	}
+
+	@Then("Landing Page will appear")
+	public void landing_Page_will_appear() {
+	    
+	}
+
+	@Then("I click on Login Button")
+	public void i_click_on_Login_Button() {
+		// Click on Login button
+		home.clickEmpLogin();
+		
+	}
+	
+	
+	
 	@Then("I enter user Id as  {string}")
 	public void i_enter_user_Id_as(String userId) {
 	
