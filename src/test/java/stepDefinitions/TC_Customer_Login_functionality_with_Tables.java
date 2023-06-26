@@ -15,26 +15,15 @@ public class TC_Customer_Login_functionality_with_Tables extends Base {
 	// Creating object of Login page
 	CustLoginPage login = new CustLoginPage(driver);
 	// Creating object of DashboardPage
-	
-		@Given("I am in Chrome Browser")
-	public void i_am_in_Chrome_Browser() {
-	    //driver.
-	}
+
 	
 	
 	@When("I navigate to microtech site")
 	public void i_navigate_to_microtech_site() {
 		navigateURL("https://it.microtechlimited.com/");
 	}
-
-	@Then("Landing Page will appear")
-	public void landing_Page_will_appear() {
-	    
-	}
-
 	@Then("I click on Login Button")
 	public void i_click_on_Login_Button() {
-		// Click on Login button
 		home.clickEmpLogin();
 		
 	}
@@ -45,7 +34,6 @@ public class TC_Customer_Login_functionality_with_Tables extends Base {
 	public void i_enter_user_Id_as(String userId) {
 	
 		login.enterUsername(userId);
-	  //  login.waitForElement();
 	}
 
 	@Then("I enter password as {string}")

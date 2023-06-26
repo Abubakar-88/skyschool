@@ -1,9 +1,7 @@
  Feature: TC_Customer_Login_functionality_with_Tables
 
-Background: 
-Given I am in Chrome Browser
-When I navigate to microtech site 
-Then Landing Page will appear
+Background:
+When I navigate to microtech site
 Then I click on Login Button
 
 @smoke

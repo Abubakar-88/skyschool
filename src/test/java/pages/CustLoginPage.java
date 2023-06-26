@@ -30,6 +30,7 @@ public class CustLoginPage extends Base {
 	//Error Label
 	By errorLabel = By.id("error-msg");
 	public  WebElement element;
+
 	public void waitForElement() {
 	    WebDriverWait wait = new WebDriverWait(driver,5);
 	    wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(uName));
