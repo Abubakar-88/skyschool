@@ -27,9 +27,7 @@ public class TC_Customer_Login_functionality_with_Tables extends Base {
 		home.clickEmpLogin();
 		
 	}
-	
-	
-	
+
 	@Then("I enter user Id as  {string}")
 	public void i_enter_user_Id_as(String userId) {
 	

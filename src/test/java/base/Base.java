@@ -10,9 +10,9 @@ import org.openqa.selenium.WebDriver;
 
 public class Base {
 	protected static WebDriver driver;
-	public static Properties property = new Properties();
-	public static FileInputStream fis;
-	public static utilities.ExcelReader reader;
+	protected static Properties property = new Properties();
+	protected static FileInputStream fis;
+	protected static utilities.ExcelReader reader;
 	
 	public static void click(By by) {
 		driver.findElement( by ).click();
@@ -23,12 +23,11 @@ public class Base {
 	}
 	
 	public static boolean isDisplayed(By by){
-		//WebElement element = browser.findElement( by );
+
 		return driver.findElement( by ).isDisplayed();
 	}
 	
 	public static boolean isEnabled(By by){
-		//WebElement element = browser.findElement( by );
 		return driver.findElement( by ).isEnabled();
 	}
 	
@@ -39,7 +38,7 @@ public class Base {
 	public static void submit(By by){
 		driver.findElement(by).submit();
 	}
-	public static void navigateURL(String url) {
+	protected static void navigateURL(String url) {
 		driver.get( url );
 	}
 

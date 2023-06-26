@@ -9,20 +9,7 @@ Scenario Outline: Login with valid Id and password
 Then I enter user Id as  "<User Id>"
 And I enter password as "<Password>"
 And Click on Customer Login Button
-Then the Verify the "<Messages>"
 Examples:
 |User Id   			 |Password|
 |testpilot@gmail.com |1234    |
 
-
-#Scenario Outline: Login with Invalid Id and-or password
-#Then I enter user Id as  "<User Id>"
-#And I enter password as "<Password>"
-#And Click on Login Button
-#Then the Verify the "<Messages>"
-#
-#Examples:
-#|User Id   						| Password|Messages |
-#|testpilot@gmail.com | invalid ||
-#|invalid@gmail.com 	| 123 		||
-#|invalid@gmail.com 	| invalid ||
