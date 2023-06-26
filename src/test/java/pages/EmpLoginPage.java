@@ -7,7 +7,7 @@ import base.Base;
 
 public class EmpLoginPage extends Base {
 
-	WebDriver driver;
+
 
 	// Constructor that will be automatically called as soon as the object of the
 	// class is created
