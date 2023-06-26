@@ -20,23 +20,10 @@ import java.net.URL;
 public class Hooks extends Base {
 	@Before
 	public void setup() throws MalformedURLException {
-		try {
-			fis = new FileInputStream(
-					System.getProperty("user.dir") + "\\src\\test\\resources\\config\\app.properties");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		try {
-			property.load(fis);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 
 		ChromeOptions opt = new ChromeOptions();
 
 		driver = new RemoteWebDriver(new URL("http://3.145.197.131:4444"),opt);
-
-
 
 	}
 
