@@ -1,9 +1,10 @@
 package stepDefinitions;
 
-import static org.junit.Assert.assertEquals;
 
 import base.Base;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import pages.HomePage;
 import pages.CustLoginPage;
 
@@ -57,9 +58,6 @@ public class TC_Customer_Login_functionality_with_Tables extends Base {
 	    login.clickLogin();
 	}
 
-// 	@Then("the Verify the {string}")
-// 	public void the_Verify_the(String string) {
-// 		assertEquals("Invalid username or password!", login.getErrorMessage() );
-// 	}
+
 
 }

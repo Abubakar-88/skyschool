@@ -4,10 +4,11 @@
   <artifactId>skySchoolingPOMBasic</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
+
 	<properties>
-		<cucumber.version>5.7.0</cucumber.version>
-		<selenium.version>3.141.59</selenium.version> 
-		<webdrivermanager.version>4.4.3</webdrivermanager.version>
+		<cucumber.version>6.11.0</cucumber.version>
+		<selenium.version>4.1.0</selenium.version>
+		<webdrivermanager.version>5.3.2</webdrivermanager.version>
 		<allure.cucumber5.version>2.14.0</allure.cucumber5.version>
 		<allure.junit4.version>2.14.0</allure.junit4.version>
 		<maven.compiler.plugin.version>3.5.1</maven.compiler.plugin.version>
@@ -24,11 +25,25 @@
 			<artifactId>selenium-java</artifactId>
 			<version>${selenium.version}</version>
 		</dependency>
-		<dependency><!-- webdrivermanager -->
+		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
 			<version>${webdrivermanager.version}</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>4.1.2</version>
+		</dependency>
+
 		<dependency><!--cucumber-java Dependencies -->
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-java</artifactId>
@@ -51,21 +66,6 @@
 			<version>${allure.junit4.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi</artifactId>
-			<version>4.1.2</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>4.1.2</version>
-		</dependency>
-		
 	</dependencies>
 
 	<build>
@@ -93,10 +93,10 @@
 						<!--${project.basedir} is the root directory of your project. -->
 						<!--${project.build.directory} is equivalent to ${project.basedir}/target -->
 						<allure.results.directory>${project.basedir}/allure-results</allure.results.directory>
-					</systemPropertyVariables>				
+					</systemPropertyVariables>
 					<argLine>
-                    -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                    -Dcucumber.options="--plugin io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"					
+						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+						-Dcucumber.options="--plugin io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"
 					</argLine>
 				</configuration>
 				<dependencies>
@@ -107,6 +107,49 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>3.0.0-M5</version>
+				<executions>
+					<execution>
+						<id>cucumber-tests</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+						<configuration>
+							<includes>
+								<include>**/Runner.java</include>
+							</includes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>net.masterthought</groupId>
+				<artifactId>maven-cucumber-reporting</artifactId>
+				<version>5.6.0</version>
+				<executions>
+					<execution>
+						<id>generate-report</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/cucumber-reports</outputDirectory>
+							<inputDirectory>${project.build.directory}</inputDirectory>
+							<jsonFiles>
+								<jsonFile>${project.build.directory}/cucumber.json</jsonFile>
+							</jsonFiles>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
+
+
 </project>

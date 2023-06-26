@@ -6,14 +6,14 @@ When I navigate to microtech site
 Then Landing Page will appear
 Then I click on Login Button
 
-@Smoke
+@smoke
 Scenario Outline: Login with valid Id and password
 Then I enter user Id as  "<User Id>"
 And I enter password as "<Password>"
 And Click on Customer Login Button
 Then the Verify the "<Messages>"
 Examples:
-|User Id   					 |Password|
+|User Id   			 |Password|
 |testpilot@gmail.com |1234    |
 
 
