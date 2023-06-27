@@ -1,5 +1,5 @@
  Feature: TC_Customer_Login_functionality_with_Tables
-
+   @smake
 Background:
 When I navigate to microtech site
 Then I click on Login Button
