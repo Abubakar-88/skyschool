@@ -18,12 +18,6 @@ import static org.junit.Assert.assertEquals;
 
 public class TC_Customer_Login_functionality_with_Tables extends Base {
 
-	// Creating object of home page
-	HomePage home = new HomePage(driver);
-	// Creating object of Login page
-	CustLoginPage login = new CustLoginPage(driver);
-
-	DashboardPage dashboard = new DashboardPage(driver);
 
 	@When("I navigate to microtech site")
 	public void i_navigate_to_microtech_site() {
@@ -32,8 +26,8 @@ public class TC_Customer_Login_functionality_with_Tables extends Base {
 
 	@Then("I click on Login Button")
 	public void i_click_on_Login_Button() {
-		// Click on Login button
-		home.clickCustLogin();
+
+		click(HomePage.custLoginBtn);
 
 	}
 
@@ -45,23 +39,23 @@ public class TC_Customer_Login_functionality_with_Tables extends Base {
 				reader.getData(System.getProperty("user.dir") + "\\src\\test\\resources\\data\\loginData.xlsx", sheetName);
 		String userId = testData.get(rowNumber).get("UserId");
 		String password = testData.get(rowNumber).get("password");
-		login.enterUsername(userId);
-		login.enterPassword(password);
+		CustLoginPage.enterUsername(userId);
+		CustLoginPage.enterPassword(password);
 	}
 
 
 	@Then("Click on Login Button")
 	public void click_on_Login_Button() throws InterruptedException {
 		// Click on login button
-		login.clickLogin();
+		CustLoginPage.clickLogin();
 		Thread.sleep(2000);
 	}
 
 	@Then("the Home Page will appear")
 	public void the_Home_Page_will_appear() throws InterruptedException {
-		assertEquals("Welcome Test", dashboard.getHeading());
+		assertEquals("Welcome Test", DashboardPage.getHeading());
 		// Click on Logout button
-		dashboard.clickLogout();
+		DashboardPage.clickLogout();
 	}
 
 
