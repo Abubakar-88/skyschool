@@ -16,16 +16,3 @@ public class Runner {
 }
 
 
-//POM
-//-Scenario Outline - with background
-//-Properties
-//-Excel
-//-Tags
-//-Allure
-//-multiBrowser
-//-Headless 
-//-ParallelExecution
-//-JSon
-//
-//
-//
