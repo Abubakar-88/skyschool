@@ -1,10 +1,10 @@
  Feature: TC_Customer_Login_functionality_with_Tables
-   @smake
+   @smoke
 Background:
 When I navigate to microtech site
 Then I click on Login Button
 
-   @smake
+   @smoke
    Scenario Outline: Login with valid Id and password
      Then I enter User Id and Password from sheetname "<SheetName>" and rownumber <RowNumber>
      And Click on Login Button
@@ -12,5 +12,5 @@ Then I click on Login Button
 
      Examples:
        |SheetName |RowNumber|
-       |loginAuth |0 	     |
+       |loginAuth |0 	    |
 
